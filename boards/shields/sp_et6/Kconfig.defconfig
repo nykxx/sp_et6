@@ -1,0 +1,33 @@
+if SHIELD_SPET6_RIGHT
+
+config ZMK_KEYBOARD_NAME
+    default "SP-ET6"
+
+config ZMK_SPLIT_ROLE_CENTRAL
+    default y
+
+config ZMK_SPLIT_BLE_CENTRAL_PERIPHERALS
+    default 1
+
+# Max pair + 1 (+1 for peripheral)
+config BT_MAX_CONN
+    default 6
+
+# Set this to the same number as BT_MAX_CONN
+config BT_MAX_PAIRED
+    default 6
+
+
+endif
+
+if SHIELD_SPET6_LEFT 
+config ZMK_SPLIT_ROLE_CENTRAL
+    default n
+endif
+
+if SHIELD_SPET6_LEFT || SHIELD_SPET6_RIGHT
+
+config ZMK_SPLIT
+    default y
+    
+endif

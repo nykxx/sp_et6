@@ -1,0 +1,11 @@
+file_format: "1"
+id: spet6
+name: SP-ET6
+type: shield
+url: https://github.com/nykxx/sp_et6
+requires: [seeeduino_xiao_ble]
+features:
+  - keys
+siblings:
+  - spet6_left
+  - spet6_right

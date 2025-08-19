@@ -18,3 +18,10 @@
 #     artifact-name: corne_left_with_studio
 #
 ---
+include:
+ - board: seeeduino_xiao_ble
+   shield: spet6_right
+ - board: seeeduino_xiao_ble
+   shield: spet6_left
+ - board: seeeduino_xiao_ble
+   shield: settings_reset
