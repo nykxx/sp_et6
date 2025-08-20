@@ -22,23 +22,25 @@
 #define SCROLL_  5
 #define EXTRA    6
 
+
 &trackball {
-    // automouse_layerを使用せずinput processorsで実現する方針に変更
-    //automouse-layer = <MOUSE_>;
+    cpi = <600>;
+};
 
-    scroll-layers = <SCROLL_>;
+&trackball_listener {
+    input-processors = <
+    // MOUSE_layer is activated when trackball is used.
+    // After 5000ms of trackball inactivity, the layer is deactivated.
+    &zip_temp_layer MOUSE_ 5000
+    // Example: Adjust sensitivity of trackball multiply by 1 and divide by 60.
+    // &zip_xy_scaler 1 60
+    >;
+};
 
-    // arrows {
-    //     layers = <3>;
-    //     bindings =
-    //         <&kp RIGHT_ARROW>,
-    //         <&kp LEFT_ARROW>,
-    //         <&kp UP_ARROW>,
-    //         <&kp DOWN_ARROW>;
-    //     tick = <10>;
-    //     wait-ms = <5>;
-    //     tap-ms = <5>;
-    // };
+&trackball_scroller {
+    layers = <SCROLL_>;
+    // Example: adjust sensitivity of scroll multiply by 1 and divide by 60.
+    // input-processors = <&zip_xy_scaler 1 60 &zip_xy_to_scroll_mapper>;
 };
 
 // クリック時に10秒間AMLを延長

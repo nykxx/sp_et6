@@ -11,12 +11,22 @@
     col-offset = <6>;
 };
 
+&kscan0 {
+    gpios
+        = <&xiao_d 1 (GPIO_ACTIVE_HIGH)>
+        , <&xiao_d 2 (GPIO_ACTIVE_HIGH)>
+        , <&xiao_d 3 (GPIO_ACTIVE_HIGH)>
+        , <&xiao_d 4 (GPIO_ACTIVE_HIGH)>
+        , <&xiao_d 5 (GPIO_ACTIVE_HIGH)>
+        , <&xiao_d 6 (GPIO_ACTIVE_HIGH)>
+        ;
+};
+
+
 / {
     trackball_listener {
         status = "okay";
-        compatible = "zmk,input-listener";
         device = <&trackball>;
-        input-processors = <&zip_temp_layer 4 10000>;
     };
 };
 
@@ -72,6 +82,9 @@
         // 2MHz suggested in datasheet
         spi-max-frequency = <2000000>;
         irq-gpios = <&xiao_d 9 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)>;
+        evt-type = <INPUT_EV_REL>;
+        x-input-code = <INPUT_REL_X>;
+        y-input-code = <INPUT_REL_Y>;
     };
 };
 
