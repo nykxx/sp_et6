@@ -46,6 +46,10 @@ PCBなしのハンドワイヤリングですが、ホットスワップにも�
 
 xiao seeed bleでCharliePlexingしてピン配置を合わせ、キーの位置も合わせれば使用可能ではあります。
 
+また、FWにはt-oguraさんの [Prospector Scanner](https://github.com/t-ogura/zmk-config-prospector) を組み込んでいます。
+
+本家と違ってドングルではないのでProspector本体がなくてもキーボードとして動作する素晴らしいアイディアです。大感謝。
+
 ## センサー基板について
 
 [bulblubさんのPMW3610 ブレイクアウトボード SEIBOKU（青墨）](https://bulblub.booth.pm/items/6363907) の使用を想定したケースになっています。
@@ -56,6 +60,9 @@ xiao seeed bleでCharliePlexingしてピン配置を合わせ、キーの位置�
 
 ## ライセンス
 
-CC-BY-NC
+本プロジェクトは **CC-BY-NC** とします。クレジット表記さえあれば非営利の範囲内での改変や配布が許可されます。
 
+[Prospector Scanner](https://github.com/t-ogura/zmk-config-prospector)はt-oguraさんが[MITライセンス](https://opensource.org/license/mit) で公開してくださっています。
+
+それと、ZMK FirmwareもMITライセンスです。
 
