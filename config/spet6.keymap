@@ -13,7 +13,10 @@
 #include <dt-bindings/zmk/bt.h>
 #include <dt-bindings/zmk/keys.h>
 #include <dt-bindings/zmk/pointing.h>
+#include <zephyr/dt-bindings/input/input-event-codes.h>
 
+
+// Layer Name Define
 #define DEFAULT 0
 #define MARKS   1
 #define NUMS    2
@@ -23,6 +26,8 @@
 #define EXTRA    6
 
 
+/**************************************************************************/
+/*  TrackBall 関連                                                        */
 &trackball {
     cpi = <600>;
 };
@@ -51,6 +56,40 @@
 
 &zip_temp_layer { require-prior-idle-ms = <200>; };
 
+/**************************************************************************/
+/*   マウススクロール用設定                                               */
+/ {
+    input_processors {
+        zip_wheel_scaler: zip_wheel_scaler {
+            compatible = "zmk,input-processor-scaler";
+            #input-processor-cells = <2>;
+            type = <INPUT_EV_REL>;
+            codes = <INPUT_REL_WHEEL>;
+            track-remainders;
+        };
+    };
+};
+
+&msc {
+    delay-ms = <0>;
+    trigger-period-ms = <10>;
+    time-to-max-speed-ms = <0>;
+    acceleration-exponent = <0>;
+};
+
+&msc_input_listener {
+    warp {
+        layers = <MOUSE_ SCROLL_>;
+        input-processors = <&zip_wheel_scaler 4 1>;
+    };
+    normal {
+        layers = <DEFAULT MARKS NUMS FUNCS EXTRA>;
+        input-processors = <&zip_wheel_scaler 1 1>;
+    };
+};
+
+
+/**************************************************************************/
 / {
     combos {
         compatible = "zmk,combos";
@@ -74,8 +113,24 @@
             bindings = <&mo 5>;
             key-positions = <41 42>;
         };
+
+        mo_scroll2 {
+            bindings = <&mo 5>;
+            key-positions = <30 31>;
+        };
+
+        alt_space {
+            bindings = <&kp LA(SPACE)>;
+            key-positions = <38 39>;
+        };
+
+        combo_capslock {
+            bindings = <&kp CAPS>;
+            key-positions = <12 13 14>;
+        };
     };
 
+/**************************************************************************/
     macros {
         to_layer_0: to_layer_0 {
             compatible = "zmk,behavior-macro-one-param";
@@ -85,6 +140,7 @@
         };
     };
 
+/**************************************************************************/
     behaviors {
         td_bspc: tap_dance_0 {
             compatible = "zmk,behavior-tap-dance";
@@ -109,6 +165,7 @@
         };
     };
 
+/**************************************************************************/
     keymap {
         compatible = "zmk,keymap";
 
@@ -117,15 +174,15 @@
             // |  ESC |  Q  |  L  |  U  |  ,  |  .  |   |  F  |  W   |  R  |  Y  |  P  |  /   |
             // | CTRL |  E  |  I  |  A  |  O  |  -  |   |  K  |  T   |  N  |  S  |  H  |  '   |
             // | SHFT |  Z  |  X  |  C  |  V  |  B  |   |  G  |  D   |  M  |  J  |  B  |  =   |
-            //        | SCRL| SPC(FUNK) | SPC(MARK) |   | ENT(MARK) | BKSP(NUM)  |
-            //              |  LALT     | NUMS      |   | GUI       | RALT       | NUMS|
+            //        | SCRL| SPC(FUNK) | SPC(MARK) |   | ENT(MARK) | BKSP(FUNC) |
+            //              |  LALT     | NUMS      |   | GUI       | RALT       | BKSP(NUM)|
 
             bindings = <
 &gresc     &kp Q  &kp L  &kp U        &kp COMMA  &kp PERIOD       &kp F          &kp W     &kp R     &kp Y  &kp P  &kp SLASH
 &kp LCTRL  &kp E  &kp I  &kp A        &kp O      &kp MINUS        &kp K          &kp T     &kp N     &kp S  &kp H  &kp SQT
 &kp LSHFT  &kp Z  &kp X  &kp C        &kp V      &kp SEMICOLON    &kp G          &kp D     &kp M     &kp J  &kp B  &kp EQUAL
                          &to SCROLL_  &td_spc    &lt MARKS SPACE  &lt MARKS RET  &td_bspc
-                                      &kp LALT   &mo NUMS         &kp LGUI       &kp RALT  &mo NUMS
+                                      &kp LALT   &mo NUMS         &kp LGUI       &kp RALT  &lt NUMS BACKSPACE
             >;
 
             sensor-bindings = <&inc_dec_kp RIGHT LEFT>;
@@ -171,15 +228,15 @@
 
         FUNC {
             // -----------------------------------------------------------------------------------------
-            // | ESC   | F1   |  F2  |  F3  |  F4   |  F5   |     |  F6 |  F7 |  F8 |  F9 | F10  | F11        |
-            // | CAPS  | ---  | ---- | ---- | ----- | ----  |     | LEFT| LEFT| DOWN| UP  |RIGHT | F12        |
-            // | SAVE  | UNDO | CUT  | COPY | PASTE | PASTE |     | HOME| PGUP| PGDN| END | ---- | PrintScreen|
+            // |  ESC   | F1   |  F2  |  F3  |  F4   |  F5   |     |  F6 |  F7 |  F8 |  F9 | F10  | F11        |
+            // |CAPSWORD| ---  | ---- | ---- | ----- | ----  |     | LEFT| LEFT| DOWN| UP  |RIGHT | F12        |
+            // |  SAVE  | UNDO | CUT  | COPY | PASTE | PASTE |     | HOME| PGUP| PGDN| END | ---- | PrintScreen|
             //                       | ---- | ----- | ----- |     | -------- | ----  | 
             //                              | ----- |Mo(BOOT)|    | Mo(BOOT) | ----- | ----- |
 
             bindings = <
 &kp ESC    &kp F1     &kp F2     &kp F3     &kp F4     &kp F5     &kp F6     &kp F7     &kp F8     &kp F9   &kp F10    &kp F11
-&kp CAPS   &trans     &trans     &trans     &trans     &trans     &kp LEFT   &kp LEFT   &kp DOWN   &kp UP   &kp RIGHT  &kp F12
+&caps_word &trans     &trans     &trans     &trans     &trans     &kp LEFT   &kp LEFT   &kp DOWN   &kp UP   &kp RIGHT  &kp F12
 &kp LC(S)  &kp LC(Z)  &kp LC(X)  &kp LC(C)  &kp LC(V)  &kp LG(V)  &kp HOME   &kp PG_UP  &kp PG_DN  &kp END  &trans     &kp LS(LG(S))
                                  &trans     &trans     &kp LGUI   &trans     &trans
                                             &trans     &mo EXTRA  &mo EXTRA  &trans     &trans
@@ -235,11 +292,11 @@
             //                         |       |     |      |     |     |
 
             bindings = <
-&bootloader  &none  &none  &none  &none  &none  &none       &none         &none         &none         &none         &bootloader
-&none        &none  &none  &none  &none  &none  &bt BT_CLR  &bt BT_SEL 0  &bt BT_SEL 1  &bt BT_SEL 2  &bt BT_SEL 3  &bt BT_SEL 4
-&none        &none  &none  &none  &none  &none  &none       &none         &none         &none         &none         &none
-                           &none  &none  &none  &none       &none
-                                  &none  &none  &none       &none         &none
+&bootloader  &none  &none  &none  &none  &none     &none       &none         &none         &none         &none         &bootloader
+&none        &none  &none  &none  &none  &none     &bt BT_CLR  &bt BT_SEL 0  &bt BT_SEL 1  &bt BT_SEL 2  &bt BT_SEL 3  &bt BT_SEL 4
+&none        &none  &none  &none  &none  &none     &none       &none         &none         &none         &none         &none
+                           &none  &none  &none     &none       &none
+                                  &none  &none     &none       &none         &none
             >;
 
             sensor-bindings = <&inc_dec_kp RIGHT LEFT>;
