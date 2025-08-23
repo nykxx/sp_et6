@@ -1492,7 +1492,7 @@
 		)
 		(uuid fa9f0fac-f5ba-4251-86c0-6c8b79f66471)
 	)
-	(text "RC(4,0)"
+	(text "RC(0,4)"
 		(exclude_from_sim no)
 		(at 201.676 183.388 0)
 		(effects
@@ -1512,7 +1512,7 @@
 		)
 		(uuid "05cb4e6c-9a7b-4eaf-ac32-fd1febbf619f")
 	)
-	(text "RC(2,10)"
+	(text "RC(4,8)"
 		(exclude_from_sim no)
 		(at 591.566 128.016 0)
 		(effects
@@ -1532,7 +1532,7 @@
 		)
 		(uuid "213e96ad-cd78-4e02-a24b-f2eef144c300")
 	)
-	(text "RC(4,8)"
+	(text "RC(2,10)"
 		(exclude_from_sim no)
 		(at 530.352 186.69 0)
 		(effects
@@ -1542,7 +1542,7 @@
 		)
 		(uuid "21cae0c3-9348-4573-bd23-3ba93b74ecd3")
 	)
-	(text "RC(1,11)"
+	(text "RC(5,7)"
 		(exclude_from_sim no)
 		(at 625.856 98.044 0)
 		(effects
@@ -1592,7 +1592,7 @@
 		)
 		(uuid "304b7491-01bf-49f4-8a58-89918ee05fdd")
 	)
-	(text "RC(2,9)"
+	(text "RC(3,8)"
 		(exclude_from_sim no)
 		(at 562.102 128.016 0)
 		(effects
@@ -1602,7 +1602,7 @@
 		)
 		(uuid "309e0946-7d1b-4cbf-8cb3-ab66537ce8bb")
 	)
-	(text "RC(3,4)"
+	(text "RC(4,3)"
 		(exclude_from_sim no)
 		(at 323.85 154.94 0)
 		(effects
@@ -1612,7 +1612,7 @@
 		)
 		(uuid "343ecd30-f714-4558-86ef-e0e156d42c11")
 	)
-	(text "RC(3,10)"
+	(text "RC(4,9)"
 		(exclude_from_sim no)
 		(at 593.09 158.75 0)
 		(effects
@@ -1622,7 +1622,7 @@
 		)
 		(uuid "3f105c9a-e343-4e7d-8413-f67307b0a6d7")
 	)
-	(text "RC(2,4)"
+	(text "RC(4,2)"
 		(exclude_from_sim no)
 		(at 322.326 124.206 0)
 		(effects
@@ -1632,7 +1632,7 @@
 		)
 		(uuid "4773836f-f7be-4066-bee2-e124bd107e6f")
 	)
-	(text "RC(3,0)"
+	(text "RC(0,3)"
 		(exclude_from_sim no)
 		(at 201.93 154.178 0)
 		(effects
@@ -1642,7 +1642,7 @@
 		)
 		(uuid "4fce75a9-744e-4d34-8cf1-205b6d5cbae1")
 	)
-	(text "RC(0,2)"
+	(text "RC(2,0)"
 		(exclude_from_sim no)
 		(at 260.604 63.5 0)
 		(effects
@@ -1652,7 +1652,7 @@
 		)
 		(uuid "4ff1fdce-3910-4227-ae9d-ba248992804c")
 	)
-	(text "RC(3,7)"
+	(text "RC(1,9)"
 		(exclude_from_sim no)
 		(at 501.396 158.242 0)
 		(effects
@@ -1662,7 +1662,7 @@
 		)
 		(uuid "509f11a1-6676-4828-8b21-c0a35c1ab8e4")
 	)
-	(text "RC(1,3)"
+	(text "RC(3,1)"
 		(exclude_from_sim no)
 		(at 295.148 94.234 0)
 		(effects
@@ -1692,7 +1692,7 @@
 		)
 		(uuid "5b618383-b8af-4941-b7ea-c4d3db202c1f")
 	)
-	(text "RC(0,1)"
+	(text "RC(1,0)"
 		(exclude_from_sim no)
 		(at 231.394 63.5 0)
 		(effects
@@ -1712,7 +1712,7 @@
 		)
 		(uuid "5d4fe9a7-1c8e-43bc-8417-f2bd291a489e")
 	)
-	(text "RC(2,6)"
+	(text "RC(0,8)"
 		(exclude_from_sim no)
 		(at 470.916 127.762 0)
 		(effects
@@ -1722,7 +1722,7 @@
 		)
 		(uuid "5e8b2584-8e15-4c2d-9674-593e539a88ea")
 	)
-	(text "RC(3,2)"
+	(text "RC(2,3)"
 		(exclude_from_sim no)
 		(at 261.366 154.432 0)
 		(effects
@@ -1762,7 +1762,7 @@
 		)
 		(uuid "6a8c7d4b-4d98-4a16-a8b7-85faed745aaa")
 	)
-	(text "RC(1,5)"
+	(text "RC(5,1)"
 		(exclude_from_sim no)
 		(at 356.616 94.234 0)
 		(effects
@@ -1772,7 +1772,7 @@
 		)
 		(uuid "804dd9a6-e7e9-43b3-b261-08e7376a37a0")
 	)
-	(text "RC(0,3)"
+	(text "RC(3,0)"
 		(exclude_from_sim no)
 		(at 293.37 62.992 0)
 		(effects
@@ -1782,7 +1782,7 @@
 		)
 		(uuid "8f86d4a0-498a-448e-9c10-0430738cd417")
 	)
-	(text "RC(1,9)"
+	(text "RC(3,7)"
 		(exclude_from_sim no)
 		(at 564.388 98.044 0)
 		(effects
@@ -1792,7 +1792,7 @@
 		)
 		(uuid "914c9d58-0239-490f-a954-896af995c738")
 	)
-	(text "RC(4,7)"
+	(text "RC(1,10)"
 		(exclude_from_sim no)
 		(at 501.396 187.198 0)
 		(effects
@@ -1802,7 +1802,7 @@
 		)
 		(uuid "97988d23-a68e-4b2a-8feb-412c8440a366")
 	)
-	(text "RC(0,8)"
+	(text "RC(2,6)"
 		(exclude_from_sim no)
 		(at 529.844 67.31 0)
 		(effects
@@ -1812,7 +1812,7 @@
 		)
 		(uuid "982aad31-10ae-4fe9-95f8-ce649e941e35")
 	)
-	(text "RC(0,10)"
+	(text "RC(4,6)"
 		(exclude_from_sim no)
 		(at 592.328 66.802 0)
 		(effects
@@ -1822,7 +1822,7 @@
 		)
 		(uuid "98aca8df-1a34-4bab-a2eb-ccce5b5aa20c")
 	)
-	(text "RC(2,5)"
+	(text "RC(5,2)"
 		(exclude_from_sim no)
 		(at 357.124 124.206 0)
 		(effects
@@ -1842,7 +1842,7 @@
 		)
 		(uuid "9ea7a724-0a18-4c50-88c7-98640d0137a8")
 	)
-	(text "RC(1,6)"
+	(text "RC(0,7)"
 		(exclude_from_sim no)
 		(at 471.17 96.52 0)
 		(effects
@@ -1852,7 +1852,7 @@
 		)
 		(uuid "9f33c1c9-1993-44f0-9b7b-f2cdf6b74f69")
 	)
-	(text "RC(4,1)"
+	(text "RC(1,4)"
 		(exclude_from_sim no)
 		(at 232.156 183.388 0)
 		(effects
@@ -1862,7 +1862,7 @@
 		)
 		(uuid "a24d2282-6a70-4bd5-b3e2-cbf964bb8e40")
 	)
-	(text "RC(3,5)"
+	(text "RC(5,3)"
 		(exclude_from_sim no)
 		(at 356.87 154.94 0)
 		(effects
@@ -1872,7 +1872,7 @@
 		)
 		(uuid "a3c06fc9-0ae3-4e61-bc11-abad1e86e270")
 	)
-	(text "RC(4,2)"
+	(text "RC(2,4)"
 		(exclude_from_sim no)
 		(at 261.112 182.88 0)
 		(effects
@@ -1882,7 +1882,7 @@
 		)
 		(uuid "a8e5f920-c320-4373-82c4-7e6058cbfea6")
 	)
-	(text "RC(0,7)"
+	(text "RC(1,6)"
 		(exclude_from_sim no)
 		(at 500.634 67.31 0)
 		(effects
@@ -1902,7 +1902,7 @@
 		)
 		(uuid "ab5f2c40-cced-43ab-beda-c99fcc1beb98")
 	)
-	(text "RC(3,8)"
+	(text "RC(2,9)"
 		(exclude_from_sim no)
 		(at 530.606 158.242 0)
 		(effects
@@ -1912,7 +1912,7 @@
 		)
 		(uuid "adcf59e7-a3dc-43c4-89f6-49a60419016a")
 	)
-	(text "RC(0,4)"
+	(text "RC(4,0)"
 		(exclude_from_sim no)
 		(at 323.088 62.992 0)
 		(effects
@@ -1922,7 +1922,7 @@
 		)
 		(uuid "ae046be9-2a55-4204-8f1c-dc862a4a7362")
 	)
-	(text "RC(3,6)"
+	(text "RC(0,9)"
 		(exclude_from_sim no)
 		(at 471.17 157.988 0)
 		(effects
@@ -1932,7 +1932,7 @@
 		)
 		(uuid "b1bf1c7f-4090-4887-8f09-a9798dbeffe3")
 	)
-	(text "RC(3,11)"
+	(text "RC(5,9)"
 		(exclude_from_sim no)
 		(at 626.11 158.75 0)
 		(effects
@@ -1942,7 +1942,7 @@
 		)
 		(uuid "b23e83b9-057c-48a8-b56c-12c7e1b0e7dd")
 	)
-	(text "RC(2,7)"
+	(text "RC(1,8)"
 		(exclude_from_sim no)
 		(at 500.634 128.524 0)
 		(effects
@@ -1952,7 +1952,7 @@
 		)
 		(uuid "b769c4fb-38d3-4138-bc8e-ecb01d8d496b")
 	)
-	(text "RC(2,11)"
+	(text "RC(5,8)"
 		(exclude_from_sim no)
 		(at 626.364 128.016 0)
 		(effects
@@ -1962,7 +1962,7 @@
 		)
 		(uuid "b9c04c58-55e6-445f-b130-d239e305841f")
 	)
-	(text "RC(1,4)"
+	(text "RC(4,1)"
 		(exclude_from_sim no)
 		(at 323.088 94.234 0)
 		(effects
@@ -1972,7 +1972,7 @@
 		)
 		(uuid "b9fad662-411b-4f2d-ab60-6a9d33b32976")
 	)
-	(text "RC(0,11)"
+	(text "RC(5,6)"
 		(exclude_from_sim no)
 		(at 626.618 67.31 0)
 		(effects
@@ -1982,7 +1982,7 @@
 		)
 		(uuid "ba433d47-18f3-4abd-b87f-bc2179f8519d")
 	)
-	(text "RC(2,0)"
+	(text "RC(0,2)"
 		(exclude_from_sim no)
 		(at 201.676 123.952 0)
 		(effects
@@ -1992,7 +1992,7 @@
 		)
 		(uuid "bde34e1b-34e7-4804-be16-df9900876724")
 	)
-	(text "RC(2,1)"
+	(text "RC(1,2)"
 		(exclude_from_sim no)
 		(at 231.394 124.714 0)
 		(effects
@@ -2002,7 +2002,7 @@
 		)
 		(uuid "bff45c3e-3f4d-449f-8153-4088bc677704")
 	)
-	(text "RC(1,8)"
+	(text "RC(2,7)"
 		(exclude_from_sim no)
 		(at 532.13 97.536 0)
 		(effects
@@ -2012,7 +2012,7 @@
 		)
 		(uuid "c495ca50-ef6e-41c6-a885-8d9f61de5d82")
 	)
-	(text "RC(1,2)"
+	(text "RC(2,1)"
 		(exclude_from_sim no)
 		(at 262.89 93.726 0)
 		(effects
@@ -2022,7 +2022,7 @@
 		)
 		(uuid "c9ca8f6e-8573-4364-a437-7738e13e4122")
 	)
-	(text "RC(0,9)"
+	(text "RC(3,6)"
 		(exclude_from_sim no)
 		(at 562.61 66.802 0)
 		(effects
@@ -2032,7 +2032,7 @@
 		)
 		(uuid "cae1135d-bbb2-47f2-b6df-c6e4cc8cd811")
 	)
-	(text "RC(4,6)"
+	(text "RC(0,10)"
 		(exclude_from_sim no)
 		(at 470.916 187.198 0)
 		(effects
@@ -2062,7 +2062,7 @@
 		)
 		(uuid "e0d14684-937b-43e6-b871-6c4afd3b602e")
 	)
-	(text "RC(2,3)"
+	(text "RC(3,2)"
 		(exclude_from_sim no)
 		(at 292.862 124.206 0)
 		(effects
@@ -2072,7 +2072,7 @@
 		)
 		(uuid "e2731c95-2d25-44f8-a383-a0aa6c396ee8")
 	)
-	(text "RC(1,0)"
+	(text "RC(0,1)"
 		(exclude_from_sim no)
 		(at 201.93 92.71 0)
 		(effects
@@ -2082,7 +2082,7 @@
 		)
 		(uuid "e8150b3f-8748-482d-815b-9b1d9b9ce49d")
 	)
-	(text "RC(0,5)"
+	(text "RC(5,0)"
 		(exclude_from_sim no)
 		(at 357.378 63.5 0)
 		(effects
@@ -2102,7 +2102,7 @@
 		)
 		(uuid "ec34792a-ce3a-4616-8e46-62992a2cda87")
 	)
-	(text "RC(1,10)"
+	(text "RC(4,7)"
 		(exclude_from_sim no)
 		(at 592.328 98.044 0)
 		(effects
@@ -2112,7 +2112,7 @@
 		)
 		(uuid "f6280780-f535-4937-9c0d-d3256fc28790")
 	)
-	(text "RC(3,1)"
+	(text "RC(1,3)"
 		(exclude_from_sim no)
 		(at 232.156 154.432 0)
 		(effects
