@@ -9,14 +9,14 @@
 #define ZMK_POINTING_DEFAULT_SCRL_VAL 120
 #define ZMK_MOUSE_SCRL_VAL 140
 
+#include <zephyr/dt-bindings/input/input-event-codes.h>
 #include <behaviors.dtsi>
 #include <dt-bindings/zmk/bt.h>
 #include <dt-bindings/zmk/keys.h>
 #include <dt-bindings/zmk/pointing.h>
-#include <zephyr/dt-bindings/input/input-event-codes.h>
-
 
 // Layer Name Define
+
 #define DEFAULT 0
 #define MARKS   1
 #define NUMS    2
@@ -25,12 +25,10 @@
 #define SCROLL_  5
 #define EXTRA    6
 
-
 /**************************************************************************/
 /*  TrackBall 関連                                                        */
-&trackball {
-    cpi = <600>;
-};
+
+&trackball { cpi = <600>; };
 
 &trackball_listener {
     input-processors = <
@@ -44,6 +42,7 @@
 
 &trackball_scroller {
     layers = <SCROLL_>;
+
     // Example: adjust sensitivity of scroll multiply by 1 and divide by 60.
     // input-processors = <&zip_xy_scaler 1 60 &zip_xy_to_scroll_mapper>;
 };
@@ -58,6 +57,7 @@
 
 /**************************************************************************/
 /*   マウススクロール用設定                                               */
+
 / {
     input_processors {
         zip_wheel_scaler: zip_wheel_scaler {
@@ -82,14 +82,15 @@
         layers = <MOUSE_ SCROLL_>;
         input-processors = <&zip_wheel_scaler 4 1>;
     };
+
     normal {
         layers = <DEFAULT MARKS NUMS FUNCS EXTRA>;
         input-processors = <&zip_wheel_scaler 1 1>;
     };
 };
 
-
 /**************************************************************************/
+
 / {
     combos {
         compatible = "zmk,combos";
@@ -130,7 +131,8 @@
         };
     };
 
-/**************************************************************************/
+    /**************************************************************************/
+
     macros {
         to_layer_0: to_layer_0 {
             compatible = "zmk,behavior-macro-one-param";
@@ -140,7 +142,8 @@
         };
     };
 
-/**************************************************************************/
+    /**************************************************************************/
+
     behaviors {
         td_bspc: tap_dance_0 {
             compatible = "zmk,behavior-tap-dance";
@@ -163,9 +166,19 @@
 
             tap-ms = <25>;
         };
+
+        mod_mkp: mod_mkp {
+            compatible = "zmk,behavior-hold-tap";
+            label = "MOD_MKP";
+            bindings = <&kp>, <&mkp>;
+
+            #binding-cells = <2>;
+            tapping-term-ms = <150>;
+        };
     };
 
-/**************************************************************************/
+    /**************************************************************************/
+
     keymap {
         compatible = "zmk,keymap";
 
@@ -178,9 +191,9 @@
             //              |  LALT     | NUMS      |   | GUI       | RALT       | BKSP(NUM)|
 
             bindings = <
-&gresc     &kp Q  &kp L  &kp U        &kp COMMA  &kp PERIOD       &kp F          &kp W     &kp R     &kp Y  &kp P  &kp SLASH
-&kp LCTRL  &kp E  &kp I  &kp A        &kp O      &kp MINUS        &kp K          &kp T     &kp N     &kp S  &kp H  &kp SQT
-&kp LSHFT  &kp Z  &kp X  &kp C        &kp V      &kp SEMICOLON    &kp G          &kp D     &kp M     &kp J  &kp B  &kp EQUAL
+&gresc     &kp Q  &kp L  &kp U        &kp COMMA  &kp PERIOD       &kp F          &kp W     &kp R               &kp Y  &kp P  &kp SLASH
+&kp LCTRL  &kp E  &kp I  &kp A        &kp O      &kp MINUS        &kp K          &kp T     &kp N               &kp S  &kp H  &kp SQT
+&kp LSHFT  &kp Z  &kp X  &kp C        &kp V      &kp SEMICOLON    &kp G          &kp D     &kp M               &kp J  &kp B  &kp EQUAL
                          &to SCROLL_  &td_spc    &lt MARKS SPACE  &lt MARKS RET  &td_bspc
                                       &kp LALT   &mo NUMS         &kp LGUI       &kp RALT  &lt NUMS BACKSPACE
             >;
@@ -235,11 +248,11 @@
             //                              | ----- |Mo(BOOT)|    | Mo(BOOT) | ----- | ----- |
 
             bindings = <
-&kp ESC    &kp F1     &kp F2     &kp F3     &kp F4     &kp F5     &kp F6     &kp F7     &kp F8     &kp F9   &kp F10    &kp F11
-&caps_word &trans     &trans     &trans     &trans     &trans     &kp LEFT   &kp LEFT   &kp DOWN   &kp UP   &kp RIGHT  &kp F12
-&kp LC(S)  &kp LC(Z)  &kp LC(X)  &kp LC(C)  &kp LC(V)  &kp LG(V)  &kp HOME   &kp PG_UP  &kp PG_DN  &kp END  &trans     &kp LS(LG(S))
-                                 &trans     &trans     &kp LGUI   &trans     &trans
-                                            &trans     &mo EXTRA  &mo EXTRA  &trans     &trans
+&kp ESC     &kp F1     &kp F2     &kp F3     &kp F4     &kp F5     &kp F6     &kp F7     &kp F8     &kp F9   &kp F10    &kp F11
+&caps_word  &trans     &trans     &trans     &trans     &trans     &kp LEFT   &kp LEFT   &kp DOWN   &kp UP   &kp RIGHT  &kp F12
+&kp LC(S)   &kp LC(Z)  &kp LC(X)  &kp LC(C)  &kp LC(V)  &kp LG(V)  &kp HOME   &kp PG_UP  &kp PG_DN  &kp END  &trans     &kp LS(LG(S))
+                                  &trans     &trans     &kp LGUI   &trans     &trans
+                                             &trans     &mo EXTRA  &mo EXTRA  &trans     &trans
             >;
 
             sensor-bindings = <&mouse_scroll SCRL_DOWN SCRL_UP>;
@@ -254,11 +267,11 @@
             //                         | --- | --- |   | --- | --- | --- |
 
             bindings = <
-&trans  &trans  &trans  &trans  &trans  &trans  &mkp MB4   &mkp MB5   &trans     &trans  &trans  &trans
-&trans  &trans  &trans  &trans  &trans  &trans  &mkp LCLK  &mkp MCLK  &mkp RCLK  &trans  &trans  &trans
-&trans  &trans  &trans  &trans  &trans  &trans  &trans     &trans     &trans     &trans  &trans  &trans
-                        &trans  &trans  &trans  &trans     &trans
-                                &trans  &trans  &mkp LCLK  &mkp MCLK  &mkp RCLK
+&trans  &trans  &trans  &trans  &trans  &trans  &mod_mkp LEFT_SHIFT MB4  &mod_mkp LCTRL MB5  &trans     &trans  &trans  &trans
+&trans  &trans  &trans  &trans  &trans  &trans  &mkp LCLK                &mkp MCLK           &mkp RCLK  &trans  &trans  &trans
+&trans  &trans  &trans  &trans  &trans  &trans  &trans                   &trans              &trans     &trans  &trans  &trans
+                        &trans  &trans  &trans  &trans                   &trans
+                                &trans  &trans  &mkp LCLK                &mkp MCLK           &mkp RCLK
             >;
 
             sensor-bindings = <&mouse_scroll SCRL_DOWN SCRL_UP>;
@@ -292,11 +305,11 @@
             //                         |       |     |      |     |     |
 
             bindings = <
-&bootloader  &none  &none  &none  &none  &none     &none       &none         &none         &none         &none         &bootloader
-&none        &none  &none  &none  &none  &none     &bt BT_CLR  &bt BT_SEL 0  &bt BT_SEL 1  &bt BT_SEL 2  &bt BT_SEL 3  &bt BT_SEL 4
-&none        &none  &none  &none  &none  &none     &none       &none         &none         &none         &none         &none
-                           &none  &none  &none     &none       &none
-                                  &none  &none     &none       &none         &none
+&bootloader  &none  &none  &none  &none  &none  &none       &none         &none         &none         &none         &bootloader
+&none        &none  &none  &none  &none  &none  &bt BT_CLR  &bt BT_SEL 0  &bt BT_SEL 1  &bt BT_SEL 2  &bt BT_SEL 3  &bt BT_SEL 4
+&none        &none  &none  &none  &none  &none  &none       &none         &none         &none         &none         &none
+                           &none  &none  &none  &none       &none
+                                  &none  &none  &none       &none         &none
             >;
 
             sensor-bindings = <&inc_dec_kp RIGHT LEFT>;
