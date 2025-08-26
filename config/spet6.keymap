@@ -24,6 +24,8 @@
 #define SCROLL_  6
 #define EXTRA    7
 
+#define AS(keycode) &as LS(keycode) keycode     // Autoshift Macro
+
 /**************************************************************************/
 /*  TrackBall 関連                                                        */
 
@@ -174,6 +176,15 @@
             #binding-cells = <2>;
             tapping-term-ms = <150>;
         };
+
+        as: auto_shift {
+            compatible = "zmk,behavior-hold-tap";
+            #binding-cells = <2>;
+            tapping_term_ms = <135>;
+            quick_tap_ms = <0>;
+            flavor = "tap-preferred";
+            bindings = <&kp>, <&kp>;
+        };
     };
 
     /**************************************************************************/
@@ -190,9 +201,9 @@
             //              |  LALT     | NUMS      |   | GUI       | RALT       | BKSP(NUM)|
 
             bindings = <
-&gresc     &kp Q  &kp L  &kp U        &kp COMMA  &kp PERIOD       &kp F          &kp W     &kp R               &kp Y  &kp P  &kp SLASH
-&kp LCTRL  &kp E  &kp I  &kp A        &kp O      &kp MINUS        &kp K          &kp T     &kp N               &kp S  &kp H  &kp SQT
-&kp LSHFT  &kp Z  &kp X  &kp C        &kp V      &kp SEMICOLON    &kp G          &kp D     &kp M               &kp J  &kp B  &kp EQUAL
+&gresc     AS(Q)  AS(L)  AS(U)        AS(COMMA)  AS(PERIOD)       AS(F)          AS(W)     AS(R)               AS(Y)  AS(P)  AS(SLASH)
+&kp LCTRL  AS(E)  AS(I)  AS(A)        AS(O)      AS(MINUS)        AS(K)          AS(T)     AS(N)               AS(S)  AS(H)  AS(SQT)
+&kp LSHFT  AS(Z)  AS(X)  AS(C)        AS(V)      AS(SEMICOLON)    AS(G)          AS(D)     AS(M)               AS(J)  AS(B)  AS(EQUAL)
                          &to SCROLL_  &td_spc    &lt MARKS SPACE  &lt MARKS RET  &td_bspc
                                       &kp LALT   &mo NUMS         &kp LGUI       &kp RALT  &lt NUMS BACKSPACE
             >;
@@ -221,16 +232,16 @@
 
         NUM {
             // -----------------------------------------------------------------------------------------
-            // |  NUM |  1  |  2  |  3  |  4  |  5  |   |  6  |  7  |  8  |  9  |  0  |  =   |
-            // | ---- | --- | --- | --- |  (  |  )  |   |  +  |  4  |  5  |  6  |  *  |  ,   |
-            // | Save | Undo| Cut | Copy|Paste|Paste|   |  -  |  1  |  2  |  3  |  /  |  .   |
+            // |  NUM |  1  |  2  |  3  |  4  |  5  |   |  6  |  7  |  8  |  9  |  0  |  .   |
+            // | ---- |  a  |  b  |  c  |  (  |  )  |   |  +  |  4  |  5  |  6  |  *  |  ,   |
+            // | ---- |  d  |  e  |  f  | --- |  x  |   |  -  |  1  |  2  |  3  |  /  |  =   |
             //                    | --- |---- | ----|   | --- | --- |
             //                          |---- | ----|   | --- | --- | --- |
 
             bindings = <
-&kp KP_NUM  &kp KP_N1  &kp KP_N2  &kp KP_N3  &kp KP_N4    &kp KP_N5    &kp KP_N6  &kp KP_N7  &kp KP_N8  &kp KP_N9  &kp KP_N0        &kp EQUAL
-&trans      &trans     &trans     &trans     &kp KP_LPAR  &kp KP_RPAR  &kp PLUS   &kp KP_N4  &kp KP_N5  &kp KP_N6  &kp KP_ASTERISK  &kp COMMA
-&kp LC(S)   &kp LC(Z)  &kp LC(X)  &kp LC(C)  &kp LC(V)    &trans       &kp MINUS  &kp KP_N1  &kp KP_N2  &kp KP_N3  &kp KP_SLASH     &kp KP_DOT
+&kp KP_NUM  &kp KP_N1  &kp KP_N2  &kp KP_N3  &kp KP_N4    &kp KP_N5    &kp KP_N6  &kp KP_N7  &kp KP_N8  &kp KP_N9  &kp KP_N0        &kp KP_DOT
+&trans      AS(A)      AS(B)      AS(C)      &kp KP_LPAR  &kp KP_RPAR  &kp PLUS   &kp KP_N4  &kp KP_N5  &kp KP_N6  &kp KP_ASTERISK  &kp COMMA
+&trans      AS(D)      AS(E)      AS(F)      &trans       &kp X        &kp MINUS  &kp KP_N1  &kp KP_N2  &kp KP_N3  &kp KP_SLASH     &kp EQUAL
                                   &trans     &trans       &trans       &trans     &trans
                                              &trans       &trans       &trans     &trans     &trans
             >;
@@ -243,8 +254,8 @@
             // |  ESC   | F1   |  F2  |  F3  |  F4   |  F5   |     |  F6 |  F7 |  F8 |  F9 | F10  | F11        |
             // |CAPSWORD| ---  | ---- | ---- | ----- | ----  |     | LEFT| LEFT| DOWN| UP  |RIGHT | F12        |
             // |  SAVE  | UNDO | CUT  | COPY | PASTE | PASTE |     | HOME| PGUP| PGDN| END | ---- | PrintScreen|
-            //                       | ---- | ----- | ----- |     | -------- | ----  | 
-            //                              | ----- |Mo(BOOT)|    | Mo(BOOT) | ----- | ----- |
+            //                        | ---- | ----- | ----- |     | -------- | ----  | 
+            //                               | ----- |Mo(BOOT)|    | Mo(BOOT) | ----- | ----- |
 
             bindings = <
 &kp ESC     &kp F1     &kp F2     &kp F3     &kp F4     &kp F5     &kp F6     &kp F7     &kp F8     &kp F9   &kp F10    &kp F11
@@ -259,18 +270,18 @@
 
         NORMAL_MOUSE {
             // -----------------------------------------------------------------------------------------
-            // | --- | --- | --- | --- | --- | --- |   | --- | --- | --- | --- | --- | --- |
-            // | --- | --- | --- | --- | --- | --- |   | --- | --- | --- | --- | --- | --- |
-            // | --- | --- | --- | --- | --- | --- |   | --- | --- | --- | --- | --- | --- |
-            //                   | --- | --- | --- |   | --- | --- |
-            //                         | --- | --- |   | --- | --- | --- |
+            // | --- | --- | --- | --- | --- | --- |   | Prev    | Next    | ---- | --- | --- | --- |
+            // | --- | --- | --- | --- | --- | --- |   | LCLK    | MCLK    | RCLK | --- | --- | --- |
+            // | --- | --- | --- | --- | --- | --- |   | Precise | Precise | ---- | --- | --- | --- |
+            //                   | --- | --- | --- |   | ------- | ------- |
+            //                         | --- | --- |   | LCLK    | MCLK    | RCLK |
 
             bindings = <
-&trans  &trans  &trans  &trans  &trans  &trans  &mod_mkp LEFT_SHIFT MB4  &mod_mkp LCTRL MB5  &trans     &trans  &trans  &trans
-&trans  &trans  &trans  &trans  &trans  &trans  &mkp LCLK                &mkp MCLK           &mkp RCLK  &trans  &trans  &trans
-&trans  &trans  &trans  &trans  &trans  &trans  &trans                   &mo MOUSE_P         &trans     &trans  &trans  &trans
-                        &trans  &trans  &trans  &trans                   &trans
-                                &trans  &trans  &mkp LCLK                &mkp MCLK           &mkp RCLK
+&trans  &trans  &trans  &trans  &trans  &trans          &mod_mkp LEFT_SHIFT MB4  &mod_mkp LCTRL MB5  &trans     &trans  &trans  &trans
+&trans  &trans  &trans  &trans  &trans  &trans          &mkp LCLK                &mkp MCLK           &mkp RCLK  &trans  &trans  &trans
+&trans  &trans  &trans  &trans  &trans  &trans          &mo MOUSE_P              &mo MOUSE_P         &trans     &trans  &trans  &trans
+                        &trans  &trans  &trans          &trans                   &trans
+                                &trans  &trans          &mkp LCLK                &mkp MCLK           &mkp RCLK
             >;
 
             sensor-bindings = <&mouse_scroll SCRL_DOWN SCRL_UP>;
@@ -278,18 +289,18 @@
 
         PRECISE_MOUSE {
             // -----------------------------------------------------------------------------------------
-            // | --- | --- | --- | --- | --- | --- |   | --- | --- | --- | --- | --- | --- |
-            // | --- | --- | --- | --- | --- | --- |   | --- | --- | --- | --- | --- | --- |
-            // | --- | --- | --- | --- | --- | --- |   | --- | --- | --- | --- | --- | --- |
-            //                   | --- | --- | --- |   | --- | --- |
-            //                         | --- | --- |   | --- | --- | --- |
+            // | --- | --- | --- | --- | --- | --- |   | Prev | Next | ---- | --- | --- | --- |
+            // | --- | --- | --- | --- | --- | --- |   | LCLK | MCLK | RCLK | --- | --- | --- |
+            // | --- | --- | --- | --- | --- | --- |   | ---- | ---- | ---- | --- | --- | --- |
+            //                   | --- | --- | --- |   | ---- | ---- |
+            //                         | --- | --- |   | LCLK | MCLK | RCLK |
 
             bindings = <
-&trans  &trans  &trans  &trans  &trans  &trans  &mod_mkp LEFT_SHIFT MB4  &mod_mkp LCTRL MB5  &trans     &trans  &trans  &trans
-&trans  &trans  &trans  &trans  &trans  &trans  &mkp LCLK                &mkp MCLK           &mkp RCLK  &trans  &trans  &trans
-&trans  &trans  &trans  &trans  &trans  &trans  &trans                   &trans              &trans     &trans  &trans  &trans
-                        &trans  &trans  &trans  &trans                   &trans
-                                &trans  &trans  &mkp LCLK                &mkp MCLK           &mkp RCLK
+&trans  &trans  &trans  &trans  &trans  &trans          &mod_mkp LEFT_SHIFT MB4  &mod_mkp LCTRL MB5  &trans     &trans  &trans  &trans
+&trans  &trans  &trans  &trans  &trans  &trans          &mkp LCLK                &mkp MCLK           &mkp RCLK  &trans  &trans  &trans
+&trans  &trans  &trans  &trans  &trans  &trans          &trans                   &trans              &trans     &trans  &trans  &trans
+                        &trans  &trans  &trans          &trans                   &trans
+                                &trans  &trans          &mkp LCLK                &mkp MCLK           &mkp RCLK
             >;
 
             sensor-bindings = <&mouse_scroll SCRL_DOWN SCRL_UP>;
