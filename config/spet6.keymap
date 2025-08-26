@@ -210,6 +210,13 @@
             tapping-term-ms = <200>;
             bindings = <&shifted>, <&kp>;
         };
+
+        tog_off: toggle_layer_off {
+            compatible = "zmk,behavior-toggle-layer";
+            #binding-cells = <1>;
+            display-name = "Toggle Layer Off";
+            toggle-mode = "off";
+        };
     };
 
     /**************************************************************************/
@@ -237,7 +244,7 @@
             sensor-bindings = <&inc_dec_kp RIGHT LEFT>;
         };
 
-        as_layer {
+        autoshift_layer {
           display-name = "AUTO-SHIFT";
             // -----------------------------------------------------------------------------------------
             // |  ESC |  Q  |  L  |  U  |  ,  |  .  |   |  F  |  W   |  R  |  Y  |  P  |  /   |
@@ -327,9 +334,9 @@
             //                         | --- | --- |   | LCLK    | MCLK    | RCLK |
 
             bindings = <
-&trans  &trans  &trans  &trans  &trans  &trans          &mod_mkp LEFT_SHIFT MB4  &mod_mkp LCTRL MB5  &trans     &trans  &trans  &trans
-&trans  &trans  &trans  &trans  &trans  &trans          &mkp LCLK                &mkp MCLK           &mkp RCLK  &trans  &trans  &trans
-&trans  &trans  &trans  &trans  &trans  &trans          &mo MOUSE_P              &mo MOUSE_P         &trans     &trans  &trans  &trans
+&tog_off MOUSE_N  &trans  &trans  &trans  &trans  &trans          &mod_mkp LEFT_SHIFT MB4  &mod_mkp LCTRL MB5  &trans     &trans  &trans  &trans
+&trans            &trans  &trans  &trans  &trans  &trans          &mkp LCLK                &mkp MCLK           &mkp RCLK  &trans  &trans  &trans
+&trans            &trans  &trans  &trans  &trans  &trans          &mo MOUSE_P              &mo MOUSE_P         &trans     &trans  &trans  &trans
                         &trans  &trans  &trans          &trans                   &trans
                                 &trans  &trans          &mkp LCLK                &mkp MCLK           &mkp RCLK
             >;
@@ -367,11 +374,11 @@
             //                          | --- | --- |   | --- | --- | --- |
 
             bindings = <
-&trans  &trans  &trans  &trans       &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans
-&trans  &trans  &trans  &trans       &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans
-&trans  &trans  &trans  &trans       &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans
-                        &tog SCROLL  &trans  &trans  &trans  &trans
-                                     &trans  &trans  &trans  &trans  &trans
+&trans  &trans  &trans  &trans           &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans
+&trans  &trans  &trans  &trans           &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans
+&trans  &trans  &trans  &trans           &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans
+                        &tog_off SCROLL  &trans  &trans  &trans  &trans
+                                         &trans  &trans  &trans  &trans  &trans
             >;
 
             sensor-bindings = <&mouse_scroll SCRL_RIGHT SCRL_LEFT>;
