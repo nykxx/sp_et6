@@ -15,15 +15,14 @@
 #include <dt-bindings/zmk/keys.h>
 #include <dt-bindings/zmk/pointing.h>
 
-// Layer Name Define
-
-#define DEFAULT 0
-#define MARKS   1
-#define NUMS    2
-#define FUNCS   3
-#define MOUSE_   4
-#define SCROLL_  5
-#define EXTRA    6
+#define DEFAULT  0
+#define MARKS    1
+#define NUMS     2
+#define FUNCS    3
+#define MOUSE_N  4
+#define MOUSE_P  5
+#define SCROLL_  6
+#define EXTRA    7
 
 /**************************************************************************/
 /*  TrackBall 関連                                                        */
@@ -31,13 +30,13 @@
 &trackball { cpi = <600>; };
 
 &trackball_listener {
-    input-processors = <
-    // MOUSE_layer is activated when trackball is used.
-    // After 5000ms of trackball inactivity, the layer is deactivated.
-    &zip_temp_layer MOUSE_ 5000
-    // Example: Adjust sensitivity of trackball multiply by 1 and divide by 60.
-    // &zip_xy_scaler 1 60
-    >;
+    input-processors = <&zip_temp_layer MOUSE_N 5000>;
+
+    precise {
+        layers = <MOUSE_P>;
+        input-processors = <&zip_xy_scaler 1 16>;
+        process-next;
+    };
 };
 
 &trackball_scroller {
@@ -49,7 +48,7 @@
 
 // クリック時に10秒間AMLを延長
 
-&mkp_input_listener { input-processors = <&zip_temp_layer MOUSE_ 10000>; };
+&mkp_input_listener { input-processors = <&zip_temp_layer MOUSE_N 10000>; };
 
 // キー入力から200ms間はAMLを抑制(AML誤発動防止)
 
@@ -79,7 +78,7 @@
 
 &msc_input_listener {
     warp {
-        layers = <MOUSE_ SCROLL_>;
+        layers = <MOUSE_N SCROLL_>;
         input-processors = <&zip_wheel_scaler 4 1>;
     };
 
@@ -111,12 +110,12 @@
         };
 
         mo_scroll {
-            bindings = <&mo 5>;
+            bindings = <&mo SCROLL_>;
             key-positions = <41 42>;
         };
 
         mo_scroll2 {
-            bindings = <&mo 5>;
+            bindings = <&mo SCROLL_>;
             key-positions = <30 31>;
         };
 
@@ -258,7 +257,26 @@
             sensor-bindings = <&mouse_scroll SCRL_DOWN SCRL_UP>;
         };
 
-        MOUSE {
+        NORMAL_MOUSE {
+            // -----------------------------------------------------------------------------------------
+            // | --- | --- | --- | --- | --- | --- |   | --- | --- | --- | --- | --- | --- |
+            // | --- | --- | --- | --- | --- | --- |   | --- | --- | --- | --- | --- | --- |
+            // | --- | --- | --- | --- | --- | --- |   | --- | --- | --- | --- | --- | --- |
+            //                   | --- | --- | --- |   | --- | --- |
+            //                         | --- | --- |   | --- | --- | --- |
+
+            bindings = <
+&trans  &trans  &trans  &trans  &trans  &trans  &mod_mkp LEFT_SHIFT MB4  &mod_mkp LCTRL MB5  &trans     &trans  &trans  &trans
+&trans  &trans  &trans  &trans  &trans  &trans  &mkp LCLK                &mkp MCLK           &mkp RCLK  &trans  &trans  &trans
+&trans  &trans  &trans  &trans  &trans  &trans  &trans                   &mo MOUSE_P         &trans     &trans  &trans  &trans
+                        &trans  &trans  &trans  &trans                   &trans
+                                &trans  &trans  &mkp LCLK                &mkp MCLK           &mkp RCLK
+            >;
+
+            sensor-bindings = <&mouse_scroll SCRL_DOWN SCRL_UP>;
+        };
+
+        PRECISE_MOUSE {
             // -----------------------------------------------------------------------------------------
             // | --- | --- | --- | --- | --- | --- |   | --- | --- | --- | --- | --- | --- |
             // | --- | --- | --- | --- | --- | --- |   | --- | --- | --- | --- | --- | --- |
