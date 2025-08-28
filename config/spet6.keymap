@@ -338,8 +338,8 @@
             bindings = <
 &tog_off MOUSE_N  &trans  &trans  &trans  &trans  &trans          &mod_mkp LEFT_SHIFT MB4  &mod_mkp LCTRL MB5  &trans     &trans  &trans  &trans
 &trans            &trans  &trans  &trans  &trans  &trans          &mkp LCLK                &mkp MCLK           &mkp RCLK  &trans  &trans  &trans
-&trans            &trans  &trans  &trans  &trans  &trans          &mo MOUSE_P              &mo MOUSE_P         &trans     &trans  &trans  &trans
-                        &trans  &trans  &trans          &trans                   &trans
+&kp LSHFT         &trans  &trans  &trans  &trans  &trans          &mo MOUSE_P              &mo MOUSE_P         &trans     &trans  &trans  &trans
+                        &trans  &trans  &trans          &tog_off MOUSE_N                  &tog_off MOUSE_N
                                 &trans  &trans          &mkp LCLK                &mkp MCLK           &mkp RCLK
             >;
 

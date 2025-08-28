@@ -39,6 +39,7 @@
         19 // T(右クリック)
         20 // N(中クリック)  
         24 // Shift
+        30 // PreciseLayer
         31 // PreciseLayer
         43 // Left Click
         44 // Mid Click
@@ -88,4 +89,3 @@
         y-input-code = <INPUT_REL_Y>;
     };
 };
-
