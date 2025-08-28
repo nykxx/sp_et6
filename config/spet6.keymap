@@ -25,7 +25,6 @@
 #define SCROLL    7
 #define EXTRA     8
 
-
 /**************************************************************************/
 /*  TrackBall 関連                                                        */
 
@@ -136,36 +135,45 @@
             key-positions = <0 11>;
         };
 
+        Lctrl {
+            bindings = <&kp LCTRL>;
+            key-positions = <24 25>;
+        };
+
+        Rctrl {
+            bindings = <&kp RCTRL>;
+            key-positions = <34 35>;
+        };
     };
 
     /**************************************************************************/
 
     macros {
         // for Auto Shift
+
         shifted: macro_shifted_kp {
             #binding-cells = <1>;
             label = "MACRO_SHIFTED_KP";
             compatible = "zmk,behavior-macro-one-param";
             bindings =
-              <&macro_press &kp LSHFT>,
-              <&macro_param_1to1 &macro_tap &kp MACRO_PLACEHOLDER>,
-              <&macro_release &kp LSHFT>;
-          };
+                <&macro_press>,
+                <&kp LSHFT &macro_param_1to1>,
+                <&macro_tap>,
+                <&kp MACRO_PLACEHOLDER>,
+                <&macro_release>,
+                <&kp LSHFT>;
+        };
 
         as: autoshift {
             compatible = "zmk,behavior-macro-one-param";
             #binding-cells = <1>;
             label = "AUTOSHIFT_KP";
             bindings =
-              <&macro_press>,
-              <&macro_param_1to1>,
-              <&macro_param_1to2>,
-              <&as_ht MACRO_PLACEHOLDER MACRO_PLACEHOLDER>,
-              <&macro_pause_for_release>,
-              <&macro_release>,
-              <&macro_param_1to1>,
-              <&macro_param_1to2>,
-              <&as_ht MACRO_PLACEHOLDER MACRO_PLACEHOLDER>;
+                <&macro_press>,
+                <&macro_param_1to1 &macro_param_1to2 &as_ht MACRO_PLACEHOLDER MACRO_PLACEHOLDER>,
+                <&macro_pause_for_release>,
+                <&macro_release>,
+                <&macro_param_1to1 &macro_param_1to2 &as_ht MACRO_PLACEHOLDER MACRO_PLACEHOLDER>;
         };
     };
 
@@ -226,8 +234,9 @@
     keymap {
         compatible = "zmk,keymap";
 
-        default_layer {          
-          display-name = "BASE";
+        default_layer {
+            display-name = "BASE";
+
             // -----------------------------------------------------------------------------------------
             // |  ESC |  Q  |  L  |  U  |  ,  |  .  |   |  F  |  W   |  R  |  Y  |  P  |  /   |
             // | CTRL |  E  |  I  |  A  |  O  |  -  |   |  K  |  T   |  N  |  S  |  H  |  '   |
@@ -247,7 +256,8 @@
         };
 
         autoshift_layer {
-          display-name = "AUTO-SHIFT";
+            display-name = "AUTO-SHIFT";
+
             // -----------------------------------------------------------------------------------------
             // |  ESC |  Q  |  L  |  U  |  ,  |  .  |   |  F  |  W   |  R  |  Y  |  P  |  /   |
             // | CTRL |  E  |  I  |  A  |  O  |  -  |   |  K  |  T   |  N  |  S  |  H  |  '   |
@@ -267,7 +277,8 @@
         };
 
         mark_layer {
-          display-name = "MARKS";
+            display-name = "MARKS";
+
             // -----------------------------------------------------------------------------------------
             // |  ~   |  !  |  @  |  #  |  $  |  %  |   |  ^  |  &  |  *  |  (        | )   | ?  |
             // | TAB  |  -  |  {  |  }  |  <  | >   |   | LFT | LFT | DWN |  UP       | RGT |  " |
@@ -287,7 +298,8 @@
         };
 
         num_layer {
-          display-name = "NUMBERS";
+            display-name = "NUMBERS";
+
             // -----------------------------------------------------------------------------------------
             // |  NUM |  1  |  2  |  3  |  4  |  5  |   |  6  |  7  |  8  |  9  |  0  |  .   |
             // | ---- |  a  |  b  |  c  |  (  |  )  |   |  +  |  4  |  5  |  6  |  *  |  ,   |
@@ -307,7 +319,8 @@
         };
 
         func_layer {
-          display-name = "FUNCTIONS";
+            display-name = "FUNCTIONS";
+
             // -----------------------------------------------------------------------------------------
             // |  ESC   | F1   |  F2  |  F3  |  F4   |  F5   |     |  F6 |  F7 |  F8 |  F9 | F10  | F11        |
             // |CAPSWORD| ---  | ---- | ---- | ----- | ----  |     | LEFT| LEFT| DOWN| UP  |RIGHT | F12        |
@@ -327,7 +340,8 @@
         };
 
         mouse_layer {
-          display-name = "MOUSE";
+            display-name = "MOUSE";
+
             // -----------------------------------------------------------------------------------------
             // | --- | --- | --- | --- | --- | --- |   | Prev    | Next    | ---- | --- | --- | --- |
             // | --- | --- | --- | --- | --- | --- |   | LCLK    | MCLK    | RCLK | --- | --- | --- |
@@ -336,18 +350,19 @@
             //                         | --- | --- |   | LCLK    | MCLK    | RCLK |
 
             bindings = <
-&tog_off MOUSE_N  &trans  &trans  &trans  &trans  &trans          &mod_mkp LEFT_SHIFT MB4  &mod_mkp LCTRL MB5  &trans     &trans  &trans  &trans
-&trans            &trans  &trans  &trans  &trans  &trans          &mkp LCLK                &mkp MCLK           &mkp RCLK  &trans  &trans  &trans
-&kp LSHFT         &trans  &trans  &trans  &trans  &trans          &mo MOUSE_P              &mo MOUSE_P         &trans     &trans  &trans  &trans
-                        &trans  &trans  &trans          &tog_off MOUSE_N                  &tog_off MOUSE_N
-                                &trans  &trans          &mkp LCLK                &mkp MCLK           &mkp RCLK
+&tog_off MOUSE_N  &trans  &trans  &trans  &trans  &trans  &mod_mkp LEFT_SHIFT MB4  &mod_mkp LCTRL MB5  &trans     &trans  &trans  &trans
+&trans            &trans  &trans  &trans  &trans  &trans  &mkp LCLK                &mkp MCLK           &mkp RCLK  &trans  &trans  &trans
+&kp LSHFT         &trans  &trans  &trans  &trans  &trans  &mo MOUSE_P              &mo MOUSE_P         &trans     &trans  &trans  &trans
+                                  &trans  &trans  &trans  &tog_off MOUSE_N         &tog_off MOUSE_N
+                                          &trans  &trans  &mkp LCLK                &mkp MCLK           &mkp RCLK
             >;
 
             sensor-bindings = <&mouse_scroll SCRL_DOWN SCRL_UP>;
         };
 
         precise_mouse_layer {
-          display-name = "PRECISE_MOUSE";
+            display-name = "PRECISE_MOUSE";
+
             // -----------------------------------------------------------------------------------------
             // | --- | --- | --- | --- | --- | --- |   | Prev | Next | ---- | --- | --- | --- |
             // | --- | --- | --- | --- | --- | --- |   | LCLK | MCLK | RCLK | --- | --- | --- |
@@ -356,18 +371,19 @@
             //                         | --- | --- |   | LCLK | MCLK | RCLK |
 
             bindings = <
-&trans  &trans  &trans  &trans  &trans  &trans          &mod_mkp LEFT_SHIFT MB4  &mod_mkp LCTRL MB5  &trans     &trans  &trans  &trans
-&trans  &trans  &trans  &trans  &trans  &trans          &mkp LCLK                &mkp MCLK           &mkp RCLK  &trans  &trans  &trans
-&trans  &trans  &trans  &trans  &trans  &trans          &trans                   &trans              &trans     &trans  &trans  &trans
-                        &trans  &trans  &trans          &trans                   &trans
-                                &trans  &trans          &mkp LCLK                &mkp MCLK           &mkp RCLK
+&trans  &trans  &trans  &trans  &trans  &trans  &mod_mkp LEFT_SHIFT MB4  &mod_mkp LCTRL MB5  &trans     &trans  &trans  &trans
+&trans  &trans  &trans  &trans  &trans  &trans  &mkp LCLK                &mkp MCLK           &mkp RCLK  &trans  &trans  &trans
+&trans  &trans  &trans  &trans  &trans  &trans  &trans                   &trans              &trans     &trans  &trans  &trans
+                        &trans  &trans  &trans  &trans                   &trans
+                                &trans  &trans  &mkp LCLK                &mkp MCLK           &mkp RCLK
             >;
 
             sensor-bindings = <&mouse_scroll SCRL_DOWN SCRL_UP>;
         };
 
         scroll_layer {
-          display-name = "SCROLL";
+            display-name = "SCROLL";
+
             // -----------------------------------------------------------------------------------------
             // | --- | --- | --- | ---- | --- | --- |   | --- | --- | --- | --- | --- | --- |
             // | --- | --- | --- | ---- | --- | --- |   | --- | --- | --- | --- | --- | --- |
@@ -387,7 +403,8 @@
         };
 
         ex_layer {
-          display-name = "EXTRA";
+            display-name = "EXTRA";
+
             // -----------------------------------------------------------------------------------------
             // | BOOT |    |     |     |       |     |      |     |     |     |     |     | BOOT |
             // |      |    |     |     |       |     |      |BTCLR| BT0 | BT1 | BT2 | BT3 | BT4  |
