@@ -146,7 +146,7 @@
         };
 
         toggle_IME {
-            bindings = <&kp LA(GRAVE)>;
+            bindings = <&kp LC(SPACE)>;
             key-positions = <37 40>;
         };
     };
@@ -295,7 +295,7 @@
 &kp GRAVE  &kp LS(N1)     &kp LS(N2)  &kp LS(N3)  &kp LS(N4)     &kp LS(N5)      &kp LS(N6)     &kp LS(N7)  &kp LS(N8)  &kp LS(N9)    &kp LS(N0)  &kp LS(SLASH)
 &kp TAB    &kp MINUS      &kp LBKT    &kp RBKT    &kp LS(COMMA)  &kp LS(PERIOD)  &kp LEFT       &kp LEFT    &kp DOWN    &kp UP        &kp RIGHT   &kp LS(SQT)
 &kp LSHFT  &kp LS(MINUS)  &kp LBRC    &kp RBRC    &kp LS(N9)     &kp LS(N0)      &kp LS(GRAVE)  &kp GRAVE   &kp BSLH    &kp LS(BSLH)  &kp EQUAL   &kp LS(EQUAL)
-                                      &trans      &trans         &trans          &trans         &kp DELETE
+                                      &trans      &trans         &kp SPACE       &kp BACKSPACE  &kp DELETE
                                                   &trans         &trans          &trans         &trans      &trans
             >;
 
