@@ -144,6 +144,11 @@
             bindings = <&kp RCTRL>;
             key-positions = <34 35>;
         };
+
+        toggle_IME {
+            bindings = <&kp LA(GRAVE)>;
+            key-positions = <37 40>;
+        };
     };
 
     /**************************************************************************/
@@ -183,14 +188,14 @@
         td_bspc: tap_dance_0 {
             compatible = "zmk,behavior-tap-dance";
             #binding-cells = <0>;
-            tapping-term-ms = <180>;
+            tapping-term-ms = <220>;
             bindings = <&lt FUNCS BSPC>, <&kp BSPC>;
         };
 
         td_spc: tap_dance_1 {
             compatible = "zmk,behavior-tap-dance";
             #binding-cells = <0>;
-            tapping-term-ms = <180>;
+            tapping-term-ms = <220>;
             bindings = <&lt FUNCS SPACE>, <&kp SPACE>;
         };
 
@@ -245,11 +250,11 @@
             //              |  LALT     | NUMS      |   | GUI       | RALT       | BKSP(NUM)|
 
             bindings = <
-&gresc     &kp Q  &kp L  &kp U        &kp COMMA  &kp PERIOD       &kp F          &kp W     &kp R               &kp Y  &kp P  &kp SLASH
-&kp LCTRL  &kp E  &kp I  &kp A        &kp O      &kp MINUS        &kp K          &kp T     &kp N               &kp S  &kp H  &kp SQT
-&kp LSHFT  &kp Z  &kp X  &kp C        &kp V      &kp SEMICOLON    &kp G          &kp D     &kp M               &kp J  &kp B  &kp EQUAL
+&gresc     &kp Q  &kp L  &kp U        &kp COMMA  &kp PERIOD       &kp F          &kp W     &kp R     &kp Y  &kp P  &kp SLASH
+&kp LCTRL  &kp E  &kp I  &kp A        &kp O      &kp MINUS        &kp K          &kp T     &kp N     &kp S  &kp H  &kp SQT
+&kp LSHFT  &kp Z  &kp X  &kp C        &kp V      &kp SEMICOLON    &kp G          &kp D     &kp M     &kp J  &kp B  &kp EQUAL
                          &tog SCROLL  &td_spc    &lt MARKS SPACE  &lt MARKS RET  &td_bspc
-                                      &kp LALT   &mo NUMS         &kp LGUI       &kp RALT  &lt NUMS BACKSPACE
+                                      &kp LALT   &mo NUMS         &kp LGUI       &kp RALT  &mo NUMS
             >;
 
             sensor-bindings = <&inc_dec_kp RIGHT LEFT>;
@@ -308,11 +313,11 @@
             //                          |---- | ----|   | --- | --- | --- |
 
             bindings = <
-&kp KP_NUM  &kp KP_N1  &kp KP_N2  &kp KP_N3  &kp KP_N4    &kp KP_N5    &kp KP_N6  &kp KP_N7  &kp KP_N8  &kp KP_N9  &kp KP_N0        &kp KP_DOT
-&trans      &as A      &as B      &as C      &kp KP_LPAR  &kp KP_RPAR  &kp PLUS   &kp KP_N4  &kp KP_N5  &kp KP_N6  &kp KP_ASTERISK  &kp COMMA
-&trans      &as D      &as E      &as F      &trans       &kp X        &kp MINUS  &kp KP_N1  &kp KP_N2  &kp KP_N3  &kp KP_SLASH     &kp EQUAL
-                                  &trans     &trans       &trans       &trans     &trans
-                                             &trans       &trans       &trans     &trans     &trans
+&kp KP_NUM  &kp KP_N1  &kp KP_N2  &kp KP_N3  &kp KP_N4    &kp KP_N5    &kp KP_N6  &kp KP_N7        &kp KP_N8  &kp KP_N9  &kp KP_N0        &kp KP_EQUAL
+&trans      &as A      &as B      &as C      &kp KP_LPAR  &kp KP_RPAR  &kp PLUS   &kp KP_N4        &kp KP_N5  &kp KP_N6  &kp KP_ASTERISK  &kp COMMA
+&trans      &as D      &as E      &as F      &trans       &kp X        &kp MINUS  &kp KP_N1        &kp KP_N2  &kp KP_N3  &kp KP_SLASH     &kp KP_DOT
+                                  &trans     &trans       &trans       &trans     &kp KP_NUMBER_0
+                                             &trans       &trans       &trans     &trans           &trans
             >;
 
             sensor-bindings = <&inc_dec_kp RIGHT LEFT>;
@@ -332,7 +337,7 @@
 &kp ESC     &kp F1     &kp F2     &kp F3     &kp F4     &kp F5     &kp F6     &kp F7     &kp F8     &kp F9   &kp F10    &kp F11
 &caps_word  &trans     &trans     &trans     &trans     &trans     &kp LEFT   &kp LEFT   &kp DOWN   &kp UP   &kp RIGHT  &kp F12
 &kp LC(S)   &kp LC(Z)  &kp LC(X)  &kp LC(C)  &kp LC(V)  &kp LG(V)  &kp HOME   &kp PG_UP  &kp PG_DN  &kp END  &trans     &kp LS(LG(S))
-                                  &trans     &trans     &kp LGUI   &trans     &trans
+                                  &trans     &trans     &kp LGUI   &kp LCTRL  &kp LSHFT
                                              &trans     &mo EXTRA  &mo EXTRA  &trans     &trans
             >;
 
