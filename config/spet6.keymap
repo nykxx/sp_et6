@@ -188,14 +188,14 @@
         td_bspc: tap_dance_0 {
             compatible = "zmk,behavior-tap-dance";
             #binding-cells = <0>;
-            tapping-term-ms = <220>;
+            tapping-term-ms = <200>;
             bindings = <&lt FUNCS BSPC>, <&kp BSPC>;
         };
 
         td_spc: tap_dance_1 {
             compatible = "zmk,behavior-tap-dance";
             #binding-cells = <0>;
-            tapping-term-ms = <220>;
+            tapping-term-ms = <200>;
             bindings = <&lt FUNCS SPACE>, <&kp SPACE>;
         };
 
@@ -232,6 +232,16 @@
             display-name = "Toggle Layer Off";
             toggle-mode = "off";
         };
+
+        ime_alt: ime_alt {
+            compatible = "zmk,behavior-hold-tap";
+            label = "IME_ALT";
+            bindings = <&kp>, <&kp>;
+
+            #binding-cells = <2>;
+            tapping-term-ms = <200>;
+            flavor = "tap-preferred";
+        };
     };
 
     /**************************************************************************/
@@ -250,11 +260,11 @@
             //              |  LALT     | NUMS      |   | GUI       | RALT       | BKSP(NUM)|
 
             bindings = <
-&gresc     &kp Q  &kp L  &kp U        &kp COMMA  &kp PERIOD       &kp F          &kp W     &kp R     &kp Y  &kp P  &kp SLASH
-&kp LCTRL  &kp E  &kp I  &kp A        &kp O      &kp MINUS        &kp K          &kp T     &kp N     &kp S  &kp H  &kp SQT
-&kp LSHFT  &kp Z  &kp X  &kp C        &kp V      &kp SEMICOLON    &kp G          &kp D     &kp M     &kp J  &kp B  &kp EQUAL
-                         &tog SCROLL  &td_spc    &lt MARKS SPACE  &lt MARKS RET  &td_bspc
-                                      &kp LALT   &mo NUMS         &kp LGUI       &kp RALT  &mo NUMS
+&gresc     &kp Q  &kp L  &kp U        &kp COMMA          &kp PERIOD       &kp F          &kp W              &kp R     &kp Y  &kp P  &kp SLASH
+&kp LCTRL  &kp E  &kp I  &kp A        &kp O              &kp MINUS        &kp K          &kp T              &kp N     &kp S  &kp H  &kp SQT
+&kp LSHFT  &kp Z  &kp X  &kp C        &kp V              &kp SEMICOLON    &kp G          &kp D              &kp M     &kp J  &kp B  &kp EQUAL
+                         &tog SCROLL  &td_spc            &lt MARKS SPACE  &lt MARKS RET  &td_bspc
+                                      &ime_alt LALT F14  &mo NUMS         &kp LGUI       &ime_alt RALT F13  &mo NUMS
             >;
 
             sensor-bindings = <&inc_dec_kp RIGHT LEFT>;
@@ -271,11 +281,11 @@
             //              |  LALT     | NUMS      |   | GUI       | RALT       | BKSP(NUM)|
 
             bindings = <
-&gresc     &as Q  &as L  &as U        &as COMMA  &as PERIOD       &as F          &as W     &as R               &as Y  &as P  &as SLASH
-&kp LCTRL  &as E  &as I  &as A        &as O      &as MINUS        &as K          &as T     &as N               &as S  &as H  &as SQT
-&kp LSHFT  &as Z  &as X  &as C        &as V      &as SEMICOLON    &as G          &as D     &as M               &as J  &as B  &as EQUAL
-                         &tog SCROLL  &td_spc    &lt MARKS SPACE  &lt MARKS RET  &td_bspc
-                                      &kp LALT   &mo NUMS         &kp LGUI       &kp RALT  &lt NUMS BACKSPACE
+&gresc     &as Q  &as L  &as U        &as COMMA          &as PERIOD       &as F          &as W              &as R               &as Y  &as P  &as SLASH
+&kp LCTRL  &as E  &as I  &as A        &as O              &as MINUS        &as K          &as T              &as N               &as S  &as H  &as SQT
+&kp LSHFT  &as Z  &as X  &as C        &as V              &as SEMICOLON    &as G          &as D              &as M               &as J  &as B  &as EQUAL
+                         &tog SCROLL  &td_spc            &lt MARKS SPACE  &lt MARKS RET  &td_bspc
+                                      &ime_alt LALT F14  &mo NUMS         &kp LGUI       &ime_alt RALT F13  &lt NUMS BACKSPACE
             >;
 
             sensor-bindings = <&inc_dec_kp RIGHT LEFT>;
