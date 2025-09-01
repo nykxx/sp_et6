@@ -305,8 +305,8 @@
 &kp GRAVE  &kp LS(N1)     &kp LS(N2)  &kp LS(N3)  &kp LS(N4)     &kp LS(N5)      &kp LS(N6)     &kp LS(N7)  &kp LS(N8)  &kp LS(N9)    &kp LS(N0)  &kp LS(SLASH)
 &kp TAB    &kp MINUS      &kp LBKT    &kp RBKT    &kp LS(COMMA)  &kp LS(PERIOD)  &kp LEFT       &kp LEFT    &kp DOWN    &kp UP        &kp RIGHT   &kp LS(SQT)
 &kp LSHFT  &kp LS(MINUS)  &kp LBRC    &kp RBRC    &kp LS(N9)     &kp LS(N0)      &kp LS(GRAVE)  &kp GRAVE   &kp BSLH    &kp LS(BSLH)  &kp EQUAL   &kp LS(EQUAL)
-                                      &trans      &trans         &kp SPACE       &kp BACKSPACE  &kp DELETE
-                                                  &trans         &trans          &trans         &trans      &trans
+                                      &trans      &kp SPACE      &kp F16         &kp BACKSPACE  &kp DELETE
+                                                  &trans         &kp F15         &trans         &trans      &trans
             >;
 
             sensor-bindings = <&inc_dec_kp DOWN UP>;
@@ -323,7 +323,7 @@
             //                          |---- | ----|   | --- | --- | --- |
 
             bindings = <
-&kp KP_NUM  &kp KP_N1  &kp KP_N2  &kp KP_N3  &kp KP_N4    &kp KP_N5    &kp KP_N6  &kp KP_N7        &kp KP_N8  &kp KP_N9  &kp KP_N0        &kp KP_EQUAL
+&kp KP_NUM  &kp KP_N1  &kp KP_N2  &kp KP_N3  &kp KP_N4    &kp KP_N5    &kp KP_N6  &kp KP_N7        &kp KP_N8  &kp KP_N9  &kp KP_N0        &kp EQUAL
 &trans      &as A      &as B      &as C      &kp KP_LPAR  &kp KP_RPAR  &kp PLUS   &kp KP_N4        &kp KP_N5  &kp KP_N6  &kp KP_ASTERISK  &kp COMMA
 &trans      &as D      &as E      &as F      &trans       &kp X        &kp MINUS  &kp KP_N1        &kp KP_N2  &kp KP_N3  &kp KP_SLASH     &kp KP_DOT
                                   &trans     &trans       &trans       &trans     &kp KP_NUMBER_0
@@ -344,10 +344,10 @@
             //                               | ----- |Mo(BOOT)|    | Mo(BOOT) | ----- | ----- |
 
             bindings = <
-&kp ESC     &kp F1     &kp F2     &kp F3     &kp F4     &kp F5     &kp F6     &kp F7     &kp F8     &kp F9   &kp F10    &kp F11
-&caps_word  &trans     &trans     &trans     &trans     &trans     &kp LEFT   &kp LEFT   &kp DOWN   &kp UP   &kp RIGHT  &kp F12
-&kp LC(S)   &kp LC(Z)  &kp LC(X)  &kp LC(C)  &kp LC(V)  &kp LG(V)  &kp HOME   &kp PG_UP  &kp PG_DN  &kp END  &trans     &kp LS(LG(S))
-                                  &trans     &trans     &kp LGUI   &kp LCTRL  &kp LSHFT
+&kp ESC     &kp F1     &kp F2     &kp F3     &kp F4     &kp F5     &kp F6     &kp F7     &kp F8     &kp F9     &kp F10    &kp F11
+&caps_word  &trans     &trans     &trans     &trans     &trans     &kp LEFT   &kp LEFT   &kp DOWN   &kp UP     &kp RIGHT  &kp F12
+&kp LC(S)   &kp LC(Z)  &kp LC(X)  &kp LC(C)  &kp LC(V)  &kp LG(V)  &trans     &kp HOME   &kp PG_DN  &kp PG_UP  &kp END    &kp LS(LG(S))
+                                  &trans     &trans     &trans     &kp LCTRL  &kp LSHFT
                                              &trans     &mo EXTRA  &mo EXTRA  &trans     &trans
             >;
 
