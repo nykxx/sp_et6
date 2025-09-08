@@ -44,11 +44,11 @@
         compatible = "zmk,matrix-transform";
         columns = <11>;
         rows = <6>;
-// | SW1  | SW2  | SW3  | SW4  | SW5  | SW6  |   | SW6  | SW5  | SW4  | SW3  | SW2  | SW1  |
-// | SW7  | SW8  | SW9  | SW10 | SW11 | SW12 |   | SW12 | SW11 | SW10 | SW9  | SW8  | SW7  |
-// | SW13 | SW14 | SW15 | SW16 | SW17 | SW18 |   | SW18 | SW17 | SW16 | SW15 | SW14 | SW13 |
-//                      | SW19 | SW20 | SW21 |   | SW20 | SW19 |
-//                             | SW22 | SW23 |   | SW23 | SW22 | SW21 |
+// | SW0  | SW1  | SW2  | SW3  | SW4  | SW5  |   | SW6  | SW7  | SW8  | SW9  | SW10 | SW11 |
+// | SW12 | SW13 | SW14 | SW15 | SW16 | SW17 |   | SW18 | SW19 | SW20 | SW21 | SW22 | SW23 |
+// | SW24 | SW25 | SW26 | SW27 | SW28 | SW29 |   | SW30 | SW31 | SW32 | SW33 | SW34 | SW35 |
+//                      | SW36 | SW37 | SW38 |   | SW39 | SW40 |
+//                             | SW41 | SW42 |   | SW43 | SW44 | SW45 |
         map = <
 RC(0,1) RC(1,0) RC(2,0) RC(3,0) RC(4,0) RC(5,0)  RC(1,6) RC(2,6) RC(3,6) RC(4,6) RC(5,6) RC(5,7)
 RC(0,2) RC(1,2) RC(2,1) RC(3,1) RC(4,1) RC(5,1)  RC(0,7) RC(2,7) RC(3,7) RC(4,7) RC(4,8) RC(5,8)

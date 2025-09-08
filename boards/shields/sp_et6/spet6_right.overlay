@@ -33,6 +33,9 @@
 // ここに指定したキーではAMLから抜けなくなる
 &zip_temp_layer {
     excluded-positions = <
+        0  // exit mouse_layer
+        39 // exit mouse_layer
+        40 // exit mouse_layer
         6  // F(Prev)
         7  // W(Next)
         18 // K(左クリック)
